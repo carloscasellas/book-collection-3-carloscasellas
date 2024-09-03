@@ -1,43 +1,47 @@
 require "test_helper"
 
 class BooksControllerTest < ActionDispatch::IntegrationTest
+  setup do
+    @book = books(:one) # Load the fixture
+  end
+
   test "should get new" do
-    get books_new_url
+    get new_book_path
     assert_response :success
   end
 
   test "should get create" do
-    get books_create_url
-    assert_response :success
+    post books_path, params: { book: { title: @book.title, author: @book.author, price: @book.price, publishedDate: @book.publishedDate } }
+    assert_response :redirect
   end
 
   test "should get index" do
-    get books_index_url
+    get books_path
     assert_response :success
   end
 
   test "should get show" do
-    get books_show_url
+    get book_path(@book)
     assert_response :success
   end
 
   test "should get edit" do
-    get books_edit_url
+    get edit_book_path(@book)
     assert_response :success
   end
 
   test "should get update" do
-    get books_update_url
-    assert_response :success
+    patch book_path(@book), params: { book: { title: "Updated Title" } }
+    assert_response :redirect
   end
 
   test "should get delete" do
-    get books_delete_url
-    assert_response :success
+    delete book_path(@book)
+    assert_response :redirect
   end
 
   test "should get destroy" do
-    get books_destroy_url
-    assert_response :success
+    delete book_path(@book)
+    assert_response :redirect
   end
 end
