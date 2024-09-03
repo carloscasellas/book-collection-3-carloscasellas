@@ -9,7 +9,7 @@ class BooksController < ApplicationController
       flash.alert = "Created book: #{@book.title}"
       redirect_to books_path
     else
-      render('new')
+      render("new")
     end
   end
 
@@ -31,7 +31,7 @@ class BooksController < ApplicationController
       flash.alert = "Edited book: #{@book.title}"
       redirect_to books_path
     else
-      render('edit')
+      render("edit")
     end
   end
 
@@ -46,9 +46,8 @@ class BooksController < ApplicationController
     redirect_to books_path
   end
 
-  private 
+  private
   def book_params
     params.require(:book).permit(:id, :title, :author, :description, :price, :publishedDate)
   end
-
 end
