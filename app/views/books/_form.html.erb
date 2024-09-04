@@ -1,18 +1,18 @@
 <table summary="Task form fields">
   <tr>
-    <th>Title</th>
+    <th><%= f.label(:title) %></th>
     <td><%= f.text_field(:title) %></td>
   </tr>
   <tr>
-    <th>Author</th>
+    <th><%= f.label(:author) %></th>
     <td><%= f.text_field(:author) %></td>
   </tr>
   <tr>
-    <th>Price</th>
+    <th><%= f.label(:price) %></th>
     <td><%= f.text_field(:price) %></td>
   </tr>
   <tr>
-    <th>Published Date</th>
+    <th><%= f.label(:publishedDate) %></th>
     <td><%= f.date_select(:publishedDate) %></td>
   </tr>
 </table>

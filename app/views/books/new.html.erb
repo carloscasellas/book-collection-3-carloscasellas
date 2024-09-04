@@ -3,6 +3,12 @@
 <div class="books new">
   <h2>Create Book</h2>
 
+  <% flash.each do |type, msg| %>
+    <h3>
+        <%= msg %>
+    </h3>
+  <% end %>
+
   <%= form_for(@book) do |f| %>
     <% # url: books_path, method: 'post' %>
 
