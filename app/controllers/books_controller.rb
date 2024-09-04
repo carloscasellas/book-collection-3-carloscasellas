@@ -9,12 +9,13 @@ class BooksController < ApplicationController
       flash.alert = "Created book: #{@book.title}"
       redirect_to books_path
     else
+      flash.alert = "Failed to save the book"
       render("new")
     end
   end
 
   def index
-    @books = Book.order(:publishedDate)
+    @books = Book.order(:title)
   end
 
   def show
