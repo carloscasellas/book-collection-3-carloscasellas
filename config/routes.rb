@@ -1,23 +1,7 @@
 Rails.application.routes.draw do
-  # get "books/new"
-  # get "books/create"
-  # get "books/index"
-  # get "books/show"
-  # get "books/edit"
-  # get "books/update"
-  # get "books/delete"
-  # get "books/destroy"
+  resources :user_books
+  resources :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # post "books/create", to: "books#create", as: "books_create"
-  # get "books/new", to: "books#new", as: "books_new"
-  # get "books/:id/edit", to: "books#edit", as: "books_edit"
-  # patch "books/:id/update", to: "books#update", as: "books_update"
-  # put "books/:id", to: "books#update"
-  # get "books/:id", to: "books#show", as: "books_show"
-  # get "books", to: "books#index", as: "books_index"
-  # get "books/:id/delete", to: "books#delete", as: "books_delete"
-  # delete "books/:id", to: "books#destroy", as: "books_destroy"
 
   resources :books do
     member do
@@ -34,5 +18,5 @@ Rails.application.routes.draw do
   get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
 
   # Defines the root path route ("/")
-  root "books#index"
+  root "user_books#index"
 end
